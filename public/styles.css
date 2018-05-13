@@ -1,0 +1,44 @@
+.jumbotron{
+    color: rgb(80, 14, 80);
+    padding: 25px;
+}
+#buttons a:hover { 
+    background-color: yellow;
+}
+h1{
+    color: rgb(80, 14, 80);
+    font-weight: 800;
+}
+h4{
+    font-weight: 700;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: block;
+    color: rgb(80, 14, 80);
+    background-color: white;
+    border: 3.5px solid rgb(80, 14, 80);
+    font-size: 25px;
+    font-weight: 800;
+}
+.btn a:hover{
+    text-decoration: none;
+}
+.text-left{
+    display: block;
+}
+p{
+    display: block; 
+    
+    
+}
+.footer{ 
+    color: rgb(80, 14, 80);
+}
+#question-box{
+    padding-top:10px;
+    padding-left:none;
+}

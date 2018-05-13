@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FriendFinder Survey</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+<br>
+<br>
+      <h1 class="text-left"></span> Survey Questions</h1>
+      <hr>
+      <br>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">About You</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form">
+
+              <div class="form-group">
+                <label for="name"style="font-weight: 600;">Name (Required)</label>
+                <input type="text" class="form-control" id="name-input">
+              </div>
+
+              <div class="form-group">
+                <label for="photo" style="font-weight: 600;">Link to Photo Image (Required)</label>
+                <input type="text" class="form-control" id="phone-input">
+              </div>
+              <hr>
+
+<div class="col-lg-12">
+                  
+              <div id="question-box"></div>
+              <h5 style><strong>Question 1</strong></h5>
+              <p>I like to go out and do/see new things on the weekends.</p>
+              <select data-placeholder="" class="browser-default" id="q1">
+                  <option value="">Choose an option</option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+              </select>
+            </div>
+            
+            <br>
+<div class="col-lg-12">            
+              <h5 style><strong>Question 2</strong></h5>
+              <p>I prefer documentaries over reality-tv. </p>
+              <select data-placeholder="" class="browser-default" id="q2">
+                  <option value="">Choose an option</option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+              </select>
+            
+            
+            <br>
+
+<div>
+    <br>
+
+            <div id="question-box"></div>
+            <h5 style><strong>Question 3</strong></h5>
+            <p>I am willing to drive far for an especially interesting experience.</p>
+            <select data-placeholder="" class="browser-default" id="q3">
+                <option value="">Choose an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+          </div>
+          
+          
+          <br>
+
+          <div id="question-box"></div>
+          <h5 style><strong>Question 4</strong></h5>
+          <p>I love Harry Potter.</p>
+          <select data-placeholder="" class="browser-default" id="q4">
+              <option value="">Choose an option</option>
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        
+<br>
+</div>
+            
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+              <br>
+              <br>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <footer class="footer">
+            <div class="container">
+                    <p><a href ="/api/tables" style="text-decoration: none; color: rgb(80, 14, 80);">API Survey Link</a> | 
+                        <a href style="text-decoration: none; color: rgb(80, 14, 80);"="https://github.com/">GitHub Repo</a></p>
+                  </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+<!--
+app.get from link, 
+app.post for friends - key value pairs for what should show up in the 
+the object that comes back, 
+
+also, the url for the photo and everything. 
+
+At the very end of the app.post you return that object, and make that available to your 
+html 
+
+youll have some kind of whatever their image is, passed in as a property to your source, 
+have some kind of jquery in the bottom of html, have script tag, the image 
+
+
+get the image using an ajax request, post, end points inside of ajax request
+-->
+
+
+<script type="text/javascript">
+
+
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+
+//grabbing the form elements
+      var newEntry = {
+        customerName: $("#name-input").val().trim(),
+        phoneNumber: $("#phone-input").val().trim(),
+      };
+
+      console.log(newEntry);
+
+
+      $.post("/api/survey", newEntry,
+        function(data) {
+
+// If a table is available... tell user they are booked.
+          if (data) {
+
+//should be a modal not an alert
+            alert("Photo of your new friend here");
+          }
+
+// Clear the form when submitting
+          $("#name-input").val("");
+          $("#phone-input").val("");
+
+        });
+
+    });
+
+</script>
