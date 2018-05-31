@@ -8,5 +8,6 @@
 //displaying the image, the image will be part of the response, app.get friends
 //href tag somewhere in your html tag 
 
-//serving up ai routes
+
+let friends = require('../data/friends.js')
 
